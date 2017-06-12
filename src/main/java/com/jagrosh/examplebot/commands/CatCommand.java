@@ -37,7 +37,6 @@ public class CatCommand extends Command
     {
         this.name = "cat";
         this.help = "shows a random cat";
-        this.category = new Category("Fun");
         this.botPermissions = new Permission[]{Permission.MESSAGE_EMBED_LINKS};
         this.guildOnly = false;
     }
