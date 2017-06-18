@@ -81,6 +81,9 @@ public class ExampleBot
 
                 // command to make a random choice
                 new ChooseCommand(),
+                
+                // command to say hello
+                new HelloCommand(waiter),
 
                 // command to check bot latency
                 new PingCommand(),
