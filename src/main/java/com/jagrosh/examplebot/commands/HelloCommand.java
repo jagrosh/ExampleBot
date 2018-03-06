@@ -15,9 +15,9 @@
  */
 package com.jagrosh.examplebot.commands;
 
-import com.jagrosh.jdautilities.commandclient.Command;
-import com.jagrosh.jdautilities.commandclient.CommandEvent;
-import com.jagrosh.jdautilities.waiter.EventWaiter;
+import com.jagrosh.jdautilities.command.Command;
+import com.jagrosh.jdautilities.command.CommandEvent;
+import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import java.util.concurrent.TimeUnit;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
@@ -47,7 +47,7 @@ public class HelloCommand extends Command
                 // make sure it's by the same user, and in the same channel
                 e -> e.getAuthor().equals(event.getAuthor()) && e.getChannel().equals(event.getChannel()), 
                 // respond, inserting the name they listed into the response
-                e -> e.getChannel().sendMessage("Hello, `"+e.getMessage().getRawContent()+"`! I'm `"+e.getJDA().getSelfUser().getName()+"`!").queue(),
+                e -> event.reply("Hello, `"+e.getMessage().getContentRaw()+"`! I'm `"+e.getJDA().getSelfUser().getName()+"`!"),
                 // if the user takes more than a minute, time out
                 1, TimeUnit.MINUTES, () -> event.reply("Sorry, you took too long."));
     }

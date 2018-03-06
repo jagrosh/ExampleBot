@@ -16,11 +16,9 @@
 package com.jagrosh.examplebot;
 
 import com.jagrosh.examplebot.commands.*;
-import com.jagrosh.jdautilities.commandclient.CommandClientBuilder;
-import com.jagrosh.jdautilities.commandclient.examples.AboutCommand;
-import com.jagrosh.jdautilities.commandclient.examples.PingCommand;
-import com.jagrosh.jdautilities.commandclient.examples.ShutdownCommand;
-import com.jagrosh.jdautilities.waiter.EventWaiter;
+import com.jagrosh.jdautilities.command.CommandClientBuilder;
+import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
+import com.jagrosh.jdautilities.examples.command.*;
 import java.awt.Color;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -98,7 +96,7 @@ public class ExampleBot
 
                 // set the game for when the bot is loading
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
-                .setGame(Game.of("loading..."))
+                .setGame(Game.playing("loading..."))
 
                 // add the listeners
                 .addEventListener(waiter)
