@@ -45,7 +45,7 @@ public class CatCommand extends Command
     protected void execute(CommandEvent event)
     {
         // use Unirest to poll an API
-        Unirest.get("http://random.cat/meow").asJsonAsync(new Callback<JsonNode>(){
+        Unirest.get("http://aws.random.cat/meow").asJsonAsync(new Callback<JsonNode>(){
             
             // The API call was successful
             @Override
