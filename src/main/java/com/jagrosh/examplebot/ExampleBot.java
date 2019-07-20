@@ -25,12 +25,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import javax.security.auth.login.LoginException;
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.OnlineStatus;
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.entities.Game;
-import net.dv8tion.jda.core.exceptions.RateLimitedException;
+import net.dv8tion.jda.api.AccountType;
+import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.exceptions.RateLimitedException;
 /**
  *
  * @author John Grosh (john.a.grosh@gmail.com)
@@ -96,13 +96,12 @@ public class ExampleBot
 
                 // set the game for when the bot is loading
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
-                .setGame(Game.playing("loading..."))
+                .setActivity(Activity.playing("loading..."))
 
                 // add the listeners
-                .addEventListener(waiter)
-                .addEventListener(client.build())
+                .addEventListeners(waiter, client.build())
 
                 // start it up!
-                .buildAsync();
+                .build();
     }
 }
