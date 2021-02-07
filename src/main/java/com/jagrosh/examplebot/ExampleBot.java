@@ -25,7 +25,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import javax.security.auth.login.LoginException;
-import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.Permission;
@@ -90,9 +89,7 @@ public class ExampleBot
                 new ShutdownCommand());
 
         // start getting a bot account set up
-        new JDABuilder(AccountType.BOT)
-                // set the token
-                .setToken(token)
+        JDABuilder.createDefault(token)
 
                 // set the game for when the bot is loading
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
